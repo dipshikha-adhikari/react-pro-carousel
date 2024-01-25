@@ -5,22 +5,21 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { useCarouselContext } from "../hooks/useCarouselContext";
-import { useEventListeners } from "../hooks/useEventListeners";
-import { useItemPerScreen } from "../hooks/useItemPerScreen";
-import { ICarouselWrapperConfig } from "../types";
 import { handleConfiguration } from "../utils/handleConfiguration";
 import { handleScroll } from "../utils/handleScroll";
 import Carousel from "./Carousel";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { useItemPerScreen } from "../hooks/useItemPerScreen";
+import { useEventListeners } from "../hooks/useEventListeners";
+import { ICarouselWrapperConfig } from "../";
 
 type CarouselProps = {
   children: React.ReactNode;
   config?: ICarouselWrapperConfig;
 };
 
-const CarouselWrapper = ({ children, config }: CarouselProps) => {
+export const CarouselWrapper = ({ children, config }: CarouselProps) => {
   const { setConfig, config: configFromContext } = useCarouselContext();
   const carouselContainerRef = useRef<HTMLDivElement>(null);
   const { itemPerScreen } = useItemPerScreen();
@@ -31,7 +30,7 @@ const CarouselWrapper = ({ children, config }: CarouselProps) => {
 
   const modifiedChildren = useMemo(() => {
     const itemsBefore = childrenArray.slice(
-      childrenArray.length - itemPerScreen
+      childrenArray.length - itemPerScreen,
     );
     const itemsAfter = childrenArray.slice(0, itemPerScreen);
     if (childrenArray.length > itemPerScreen) {
@@ -120,13 +119,14 @@ const CarouselWrapper = ({ children, config }: CarouselProps) => {
         ref={carouselContainerRef}
         data-test="container"
       >
-        {modifiedChildren?.map((child, ind) => {
-          return (
-            <Carousel key={child.toString() + ind} snapAlign={snapAlign}>
-              {child}
-            </Carousel>
-          );
-        })}
+        {modifiedChildren &&
+          modifiedChildren?.map((child, ind) => {
+            return (
+              <Carousel key={child.toString() + ind} snapAlign={snapAlign}>
+                {child}
+              </Carousel>
+            );
+          })}
       </div>
       {modifiedChildren.length > itemPerScreen && configFromContext?.arrow && (
         <IoIosArrowForward
@@ -139,4 +139,5 @@ const CarouselWrapper = ({ children, config }: CarouselProps) => {
     </div>
   );
 };
-export default CarouselWrapper;
+
+// export default CarouselWrapper;

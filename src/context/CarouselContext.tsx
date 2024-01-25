@@ -1,9 +1,31 @@
 import { ReactNode, createContext, useState } from "react";
-import { ICarouselWrapperConfig } from "../types";
 
 export interface ICarouselContext {
   config: ICarouselWrapperConfig;
   setConfig: (config: ICarouselWrapperConfig) => void;
+}
+
+export interface ICarouselWrapperConfig {
+  responsive?: IResponsive;
+  itemPerScreen?: number;
+  height?: number | string;
+  gap?: number;
+  arrow?: boolean;
+}
+
+export interface IResponsive {
+  sm?: {
+    breakPoint: number;
+    itemPerScreen: number;
+  };
+  md?: {
+    breakPoint: number;
+    itemPerScreen: number;
+  };
+  lg?: {
+    breakPoint: number;
+    itemPerScreen: number;
+  };
 }
 
 export const Context = createContext<ICarouselContext>({

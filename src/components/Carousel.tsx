@@ -1,12 +1,6 @@
-import React from "react";
 import styled, { css } from "styled-components";
 import { useCarouselContext } from "../hooks/useCarouselContext";
-import { ICarouselWrapperConfig } from "../types";
-
-type CarouselProps = {
-  children: React.ReactNode;
-  snapAlign: string;
-};
+import { CarouselProps, ICarouselWrapperConfig } from "..";
 
 const Wrapper = styled.div<{
   props: ICarouselWrapperConfig;

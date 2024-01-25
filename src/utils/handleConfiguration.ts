@@ -1,4 +1,4 @@
-import { ICarouselWrapperConfig } from "../types";
+import { ICarouselWrapperConfig } from "../";
 
 export const handleConfiguration = (
   config: ICarouselWrapperConfig | undefined,

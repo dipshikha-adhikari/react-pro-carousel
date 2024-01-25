@@ -1,4 +1,4 @@
-import { ICarouselWrapperConfig } from "../types";
+import { ICarouselWrapperConfig } from "..";
 
 export const getMaxItemPerScreen = (config?: ICarouselWrapperConfig) => {
   let maxItemPerScreen = config?.itemPerScreen || 1;

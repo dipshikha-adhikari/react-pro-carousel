@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
-import { ICarouselWrapperConfig } from "../types";
 import { useCarouselContext } from "./useCarouselContext";
+import { ICarouselWrapperConfig } from '../';
 
 export const useItemPerScreen = () => {
   const { config } = useCarouselContext();
