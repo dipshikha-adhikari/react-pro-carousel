@@ -16,15 +16,9 @@ npm install react-pro-carousel --save
 yarn add react-pro-carousel
 ```
 
-**Add css**
-
-// Import css files
+**Import css files**
 
 import "react-pro-carousel/dist/style.css";
-
-````
-
-
 
 ### Example
 
@@ -75,4 +69,4 @@ const App = () => {
 };
 
 export default App;
-````
+```
