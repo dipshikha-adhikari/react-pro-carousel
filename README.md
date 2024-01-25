@@ -1,15 +1,78 @@
-# 🚀 Welcome to your new awesome project!
+### react-pro-carousel
 
-This project has been created using **webpack-cli**, you can now run
+##### Carousel component built with React.
 
-```
-npm run build
-```
+### Installation
 
-or
+**npm**
 
-```
-yarn build
+```bash
+npm install react-pro-carousel --save
 ```
 
-to bundle your application
+**yarn**
+
+```bash
+yarn add react-pro-carousel
+```
+
+**Add css**
+
+// Import css files
+
+import "react-pro-carousel/dist/style.css";
+
+````
+
+
+
+### Example
+
+```js
+import React from "react";
+import { CarouselWrapper, Item, ICarouselWrapperConfig} from "react-pro-carousel";
+
+
+const App = () => {
+  const config: ICarouselWrapperConfig = {
+    height: 200,
+    responsive: {
+      sm: {
+        breakPoint: 500,
+        itemPerScreen: 2,
+      },
+    },
+    arrow: false,
+  };
+
+  return (
+    <div className="grid   " data-test="app">
+      <CarouselWrapper config={config}>
+        <Item>
+          <div>1</div>
+        </Item>
+        <Item>
+          {" "}
+          <div>2</div>
+        </Item>
+        <Item>
+          <div>1</div>
+        </Item>
+        <Item>
+          {" "}
+          <div>2</div>
+        </Item>
+        <Item>
+          <div>1</div>
+        </Item>
+        <Item>
+          {" "}
+          <div>2</div>
+        </Item>
+      </CarouselWrapper>
+    </div>
+  );
+};
+
+export default App;
+````
